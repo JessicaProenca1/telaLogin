@@ -1,29 +1,27 @@
-import { senha, email } from '../actions/actionLogin';
+import { descricao, valor } from '../actions/actionDespesas';
 
 // função reducer faz o mesmo trabalho que o setstate. O reducer modifica o state.
 
 const INITIAL_STATE = {
-  senha: false,
-  email: false,
-
+  descricao: '',
+  valor: '',
 };
 // por que o state inicial no navegador está como undefined? Quando aplico a action ele aparece normal (começou isso após o combineReducers)
-
-const telaLogin = (state = INITIAL_STATE, action) => {
+const despesasReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case senha:
+    case descricao:
       return {
         ...state,
-        senha: true,
+        descricao: action.payload,
       };
-    case email:
+    case valor:
       return {
         ...state,
-        email: true,
+        valor: action.payload,
       };
     default:
       return state;
   }
 }
 
-export default telaLogin;
+export default despesasReducer;
